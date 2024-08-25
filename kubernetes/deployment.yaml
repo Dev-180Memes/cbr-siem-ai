@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cybersecurity-ai-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cybersecurity-ai-app
+  template:
+    metadata:
+      labels:
+        app: cybersecurity-ai-app
+    spec:
+      containers:
+      - name: cybersecurity-ai-app
+        image: us-central1-docker.pkg.dev/cbr-siem-ai/cybersecurity-ai-repo/cybersecurity-ai-app:v1
+        ports:
+        - containerPort: 8080
